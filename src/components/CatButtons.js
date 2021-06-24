@@ -55,6 +55,7 @@ const renderItem = ({item})=>(
         </SafeAreaView>
         
     );
+    
 }
 
 const styles = StyleSheet.create({
