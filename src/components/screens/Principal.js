@@ -13,10 +13,7 @@ const Principal = () => {
       <View >
        <Busqueda/>  
       </View>
-     
-          <ButtonCat/>
-       
-            
+          <ButtonCat/>       
         </View>
         </ScrollView>
      );
