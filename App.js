@@ -11,6 +11,8 @@ export default function App() {
     <View>
       <Home/>
     </View>
+
+    
   );
 }
 
