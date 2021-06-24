@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, ScrollView } from 'react-native';
 
 const DATA = [
   {
@@ -41,6 +41,7 @@ const ButtonCat = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      
       <FlatList
         numColumns ={2}
         data={DATA}
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   },
   item: {
     width:'42%',
-    height:290,
+    height:390,
     backgroundColor: '#f9c2ff',
     padding:50,
     marginVertical: 8,
