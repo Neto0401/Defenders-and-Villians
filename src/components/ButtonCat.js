@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, ScrollView } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Image } from 'react-native';
 
 const DATA = [
   {
@@ -31,7 +31,11 @@ const DATA = [
 const Item = ({ title }) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
+    <Image
+          source={require('../../assets/SmallIcon.png')}
+        />
   </View>
+  
 );
 
 const ButtonCat = () => {
@@ -41,7 +45,7 @@ const ButtonCat = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      
+    
       <FlatList
         numColumns ={2}
         data={DATA}
@@ -49,6 +53,7 @@ const ButtonCat = () => {
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
+    
   );
 }
 
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
   },
   item: {
     width:'42%',
-    height:390,
+    height:240,
     backgroundColor: '#f9c2ff',
     padding:50,
     marginVertical: 8,
