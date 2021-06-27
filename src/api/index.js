@@ -1,21 +1,30 @@
-import React from 'react'
+import getEnvVars from '../../environment';
+const {apiUrl} = getEnvVars();
 
-const Heroes = () => {
-    const [heroes, setHeroes] = React.useState([]);
+export const fetchHeroes = async() => {
+    try {
+        for (let index = 1; index < 700; index++) {
+            const endpoint=`apiUrl${index}`
+        }
+        const response = await fetch(endpoint); 
+        const data = await response.json();
 
-    React.useEffect(() => {
-        console.log('use Effect');
-        obtenerDatos();
-
-    }, [])
-
-    const obtenerDatos = async() => {
-        const data = await fetch('https://www.superheroapi.com/api/4058882490856709/1');
-        const dataHeroes = await data.json();
-        console.log(dataHeroes);
-        setHeroes(dataHeroes.powerstats);
-    }
-
-}
-
-export default Heroes
+        const heroesInfo = () =>{
+            const promises = data.results.map(async(heroes)=> {
+                return{
+                    ...heroes,
+                    heroesInfo: await searchHeroes(heroes.name),
+                };
+            });
+            return Promise.all(promises);
+        };
+        return{
+            count: data.count, results: await heroesInfo()}
+        } catch (error) {
+        console.log(error);
+        return{  
+            count:0,
+        }    
+    };
+    
+};

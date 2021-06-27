@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { View,StyleSheet, ScrollView } from 'react-native';
 import Header from '../../components/Appbar'
 import Busqueda from '../SearchBar';
@@ -9,9 +9,9 @@ const Principal = () => {
      <View>
       <Header/>
         <Busqueda/>  
-        <ButtonCat/>  
+        <ButtonCat/> 
       </View>
      );
 }
- 
+
 export default Principal;

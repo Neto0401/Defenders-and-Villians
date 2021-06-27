@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity,Image } from "react-native";
+import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity,Image, ImageBackground } from "react-native";
 
 const DATA = [
   {
@@ -64,9 +64,9 @@ const ButtonCat = () => {
         data={DATA}
         renderItem={renderItem}
         extraData={selectedId}
-      />
+     />   
   );
-};
+ };
 
 const styles = StyleSheet.create({
   container: {

@@ -1,15 +1,12 @@
 import React from 'react'
 import Principal from './Principal'
-import {View} from 'react-native'
+import {View, ImageBackground} from 'react-native'
 
 const Home = () => {
     return ( 
         <View>
-        <Principal/>
+         <Principal/>
         </View>
      );
 }
-
-
- 
 export default Home;
