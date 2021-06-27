@@ -2,10 +2,10 @@ import React from 'react'
 import Principal from './Principal'
 import {View, ImageBackground} from 'react-native'
 
-const Home = () => {
+const Home = ({navigation}) => {
     return ( 
         <View>
-         <Principal/>
+         <Principal navigation={navigation}/>
         </View>
      );
 }

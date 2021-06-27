@@ -41,7 +41,7 @@ const Item = ({ item, onPress }) => (
   </TouchableOpacity>
 );
 
-const ButtonCat = () => {
+const ButtonCat = ({navigation}) => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {
@@ -51,7 +51,7 @@ const ButtonCat = () => {
     return (
       <Item
         item={item}
-        onPress={() => setSelectedId(item.id)}
+        onPress={() => {navigation.navigate("Listado")}, setSelectedId(item.id)}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
       />
@@ -59,7 +59,7 @@ const ButtonCat = () => {
   };
 
   return (
-      <FlatList style = {{flex: 0,marginBottom: 430}}
+      <FlatList style = {{flex: 0}}
         numColumns = {'2'}
         data={DATA}
         renderItem={renderItem}
@@ -70,7 +70,7 @@ const ButtonCat = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+   // flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
