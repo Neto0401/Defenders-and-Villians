@@ -7,9 +7,7 @@ export default function App() {
   return (
     <View>
       <Home/>
-    </View>
-
-    
+    </View>  
   );
 }
 
