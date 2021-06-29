@@ -1,5 +1,5 @@
 import React from 'react';
-import { Appbar,Text } from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 import { StyleSheet,Image } from 'react-native';
 
 const Header = () => (

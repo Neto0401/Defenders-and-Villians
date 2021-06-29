@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity,Image, ImageBackground } from "react-native";
+import { FlatList,StatusBar, StyleSheet, Text,View, TouchableOpacity,Image, SafeAreaView } from "react-native";
 
 const DATA = [
   {
@@ -51,7 +51,7 @@ const ButtonCat = ({navigation}) => {
     return (
       <Item
         item={item}
-        onPress={() => {navigation.navigate("Listado")}, setSelectedId(item.id)}
+        onPress={() =>{navigation.navigate("Listado")}}
         backgroundColor={{ backgroundColor }}
         textColor={{ color }}
       />
@@ -59,19 +59,22 @@ const ButtonCat = ({navigation}) => {
   };
 
   return (
-      <FlatList style = {{flex: 0}}
+    <View style = {styles.container}>
+      <FlatList
         numColumns = {'2'}
         data={DATA}
         renderItem={renderItem}
+        keyExtractor={(item) => item.id}
         extraData={selectedId}
-     />   
+    />   
+    </View>
   );
- };
+};
 
 const styles = StyleSheet.create({
   container: {
-   // flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+    marginBottom: 300
   },
   item: {
     backgroundColor:'#323CA6',

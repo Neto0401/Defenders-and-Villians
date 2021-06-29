@@ -1,30 +1,68 @@
+import React from 'react'
 import getEnvVars from '../../environment';
-const {apiUrl} = getEnvVars();
+
+const { apiUrl } = getEnvVars();
+
 
 export const fetchHeroes = async() => {
     try {
-        for (let index = 1; index < 700; index++) {
-            const endpoint=`apiUrl${index}`
-        }
-        const response = await fetch(endpoint); 
-        const data = await response.json();
+        const allCharacters = { results: [] };
+        for (let index = 1; index < 10; index++) {
 
-        const heroesInfo = () =>{
-            const promises = data.results.map(async(heroes)=> {
-                return{
-                    ...heroes,
-                    heroesInfo: await searchHeroes(heroes.name),
-                };
-            });
-            return Promise.all(promises);
-        };
-        return{
-            count: data.count, results: await heroesInfo()}
-        } catch (error) {
+            const endpoint = `${apiUrl}${index}`
+            const response = await fetch(endpoint);
+            const data = await response.json();
+
+            allCharacters.results.push(data);
+
+        }
+
+        return allCharacters;
+
+    } catch (error) {
+
         console.log(error);
-        return{  
-            count:0,
-        }    
+        return {
+            count: 0,
+        }
+
     };
-    
+
 };
+
+export const FilterHeros = async() => {
+    try {
+        const allCharacters = { results: [] };
+        for (let index = 1; index < 10; index++) {
+            const endpoint = `${apiUrl}${index}`
+            const response = await fetch(endpoint);
+            const data = await response.json();
+
+            allCharacters.results.push(data);
+
+        }
+        const Heroes = { results: [] };
+        Heroes = allCharacters.results.filter(hero => hero.biography.alignment === 'bad')
+        return Heroes;
+
+    } catch (error) {
+
+        console.log(error);
+        return {
+            count: 0,
+        }
+
+    };
+
+};
+
+
+// export const filterCharacters = (characters) => {
+//     try {
+//         const Heroes = characters.results.filter(hero => hero.biography.alignment === 'good')
+//         return Heroes
+
+//     } catch (error) {
+
+//     }
+// }
