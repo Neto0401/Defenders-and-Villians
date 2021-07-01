@@ -4,7 +4,7 @@ import getEnvVars from '../../environment';
 const { apiUrl } = getEnvVars();
 
 let cat;
-
+/*
 export const fetchHeroes = async() => {
     try {
         const allCharacters = { results: [] };
@@ -30,14 +30,14 @@ export const fetchHeroes = async() => {
     };
 
 };
-
+*/
 export const FilterHeros = async() => {
     try {
 
         const allCharacters = { results: [] };
         const Heroes = { results: [] };
 
-        for (let index = 1; index < 100; index++) {
+        for (let index = 1; index < 10; index++) {
 
             const endpoint = `${apiUrl}${index}`
             const response = await fetch(endpoint);

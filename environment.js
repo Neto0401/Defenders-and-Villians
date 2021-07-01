@@ -4,6 +4,7 @@ const ENV = {
     dev: {
         apiUrl: "https://superheroapi.com/api/4058882490856709/",
         apiSearch: "https://superheroapi.com/api/4058882490856709/search/",
+        
     },
 
     production: {
