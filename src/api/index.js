@@ -3,6 +3,7 @@ import getEnvVars from '../../environment';
 
 const { apiUrl } = getEnvVars();
 
+let cat;
 
 export const fetchHeroes = async() => {
     try {
@@ -32,8 +33,12 @@ export const fetchHeroes = async() => {
 
 export const FilterHeros = async() => {
     try {
+
         const allCharacters = { results: [] };
-        for (let index = 1; index < 10; index++) {
+        const Heroes = { results: [] };
+
+        for (let index = 1; index < 100; index++) {
+
             const endpoint = `${apiUrl}${index}`
             const response = await fetch(endpoint);
             const data = await response.json();
@@ -41,9 +46,21 @@ export const FilterHeros = async() => {
             allCharacters.results.push(data);
 
         }
-        const Heroes = { results: [] };
-        Heroes = allCharacters.results.filter(hero => hero.biography.alignment === 'bad')
+        
+        if (cat === 'good' || cat === 'bad') {
+            Heroes.results = allCharacters.results.filter(hero => hero.biography.alignment === cat)   
+        }else if(cat === 'Marvel Comics' || cat === 'DC Comics'){
+            Heroes.results = allCharacters.results.filter(hero => hero.biography.publisher === cat)
+        }else if(cat === 'others'){
+            Heroes.results = allCharacters.results.filter(hero => hero.biography.publisher != 'Marvel Comics' && hero.biography.publisher != 'DC Comics' )
+        }else if(cat === 'all'){
+
+            return allCharacters;
+        }
+        
         return Heroes;
+
+        // return allCharacters.results.filter(hero => hero.biography.alignment == 'bad')
 
     } catch (error) {
 
@@ -55,6 +72,13 @@ export const FilterHeros = async() => {
     };
 
 };
+
+export const elergirCat = ({Categoria}) => {
+
+    cat = Categoria;
+
+}
+
 
 
 // export const filterCharacters = (characters) => {

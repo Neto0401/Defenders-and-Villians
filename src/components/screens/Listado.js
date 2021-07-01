@@ -7,7 +7,7 @@ const Listado = () =>{
     const [heroes, setHeroes] = useState({});
 
     const getHeroes = async() =>{
-        // const response = await fetchHeroes();
+        //const response = await fetchHeroes();
         const response = await FilterHeros();
         setHeroes(response);
     }
