@@ -1,18 +1,19 @@
-import React from 'react';
-import { Searchbar } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { Searchbar,Button } from 'react-native-paper';
+import { StyleSheet,View } from 'react-native';
+import SearchResults from "./screens/SearchResults";
 
-const Busqueda = () => {
-  const [searchQuery, setSearchQuery] = React.useState('');
 
-  const onChangeSearch = query => setSearchQuery(query);
+const Busqueda = ({navigation}) => {
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <Searchbar style = {styles.searchBar}
-      placeholder="Search"
-      onChangeText={onChangeSearch}
-      value={searchQuery}
-    />
+      <Searchbar style = {styles.searchBar}
+        placeholder="Ingresa el nombre de un personaje"
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        onIconPress={() =>{navigation.navigate("SearchResults")}}
+      />
   );
 };
 

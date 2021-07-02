@@ -16,8 +16,8 @@ const ImgHero = ({id}) => {
 
 const styles = StyleSheet.create({
     image:{
-        width: 50,
-        height: 50,
+        width: '100%',
+        height: '90%',
     }
 });
 export default ImgHero;

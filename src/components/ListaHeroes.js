@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList,TouchableOpacity,useState,Text,Image,View,Title } from 'react-native';
+import { FlatList,TouchableOpacity,Text,StyleSheet } from 'react-native';
 import { elergirCat, fetchHeroes } from '../api';
 import HeroCard from './Card';
 import ImgHero from './HeroImage';
@@ -16,7 +16,7 @@ console.log(heroes);
         keyExtractor = {(item) => item.id}
         renderItem={({item}) =>{
             return(
-                <TouchableOpacity style={{width:'30%', height:'50%'}}>
+                <TouchableOpacity style={styles.touch}>
                     <ImgHero id={item.image.url} />
                     <Text>{item.name}</Text>
                 </TouchableOpacity>
@@ -26,5 +26,24 @@ console.log(heroes);
     );
 
 };
+
+const styles = StyleSheet.create({
+    touch:{
+        backgroundColor: '#fff',
+        width:'30%',
+        height:200,
+        margin:'1%',
+        marginLeft:'2%',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.27,
+        shadowRadius: 4.65,
+
+        elevation: 6,
+            }
+})
 
 export default ListaHeroes;  

@@ -1,24 +1,19 @@
 import React from 'react'
 import getEnvVars from '../../environment';
 
-const { apiUrl } = getEnvVars();
+const { apiUrl, apiSearch } = getEnvVars();
 
 let cat;
-/*
-export const fetchHeroes = async() => {
+let Busqueda;
+
+export const searchHeroes = async() => {
+
     try {
-        const allCharacters = { results: [] };
-        for (let index = 1; index < 10; index++) {
+        const endpoint = `${apiSearch}${Busqueda}`
+        const response = await fetch(endpoint);
+        const data = await response.json();
 
-            const endpoint = `${apiUrl}${index}`
-            const response = await fetch(endpoint);
-            const data = await response.json();
-
-            allCharacters.results.push(data);
-
-        }
-
-        return allCharacters;
+        return data;
 
     } catch (error) {
 
@@ -30,7 +25,7 @@ export const fetchHeroes = async() => {
     };
 
 };
-*/
+
 export const FilterHeros = async() => {
     try {
 
@@ -46,18 +41,18 @@ export const FilterHeros = async() => {
             allCharacters.results.push(data);
 
         }
-        
+
         if (cat === 'good' || cat === 'bad') {
-            Heroes.results = allCharacters.results.filter(hero => hero.biography.alignment === cat)   
-        }else if(cat === 'Marvel Comics' || cat === 'DC Comics'){
+            Heroes.results = allCharacters.results.filter(hero => hero.biography.alignment === cat)
+        } else if (cat === 'Marvel Comics' || cat === 'DC Comics') {
             Heroes.results = allCharacters.results.filter(hero => hero.biography.publisher === cat)
-        }else if(cat === 'others'){
-            Heroes.results = allCharacters.results.filter(hero => hero.biography.publisher != 'Marvel Comics' && hero.biography.publisher != 'DC Comics' )
-        }else if(cat === 'all'){
+        } else if (cat === 'others') {
+            Heroes.results = allCharacters.results.filter(hero => hero.biography.publisher != 'Marvel Comics' && hero.biography.publisher != 'DC Comics')
+        } else if (cat === 'all') {
 
             return allCharacters;
         }
-        
+
         return Heroes;
 
         // return allCharacters.results.filter(hero => hero.biography.alignment == 'bad')
@@ -73,12 +68,17 @@ export const FilterHeros = async() => {
 
 };
 
-export const elergirCat = ({Categoria}) => {
+export const elergirCat = ({ Categoria }) => {
 
     cat = Categoria;
 
 }
 
+export const BuscarPersonaje = ({ Nombre }) => {
+
+    Busqueda = Nombre;
+
+}
 
 
 // export const filterCharacters = (characters) => {
