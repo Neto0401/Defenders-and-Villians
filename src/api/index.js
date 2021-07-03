@@ -13,7 +13,7 @@ export const searchHeroes = async() => {
         const endpoint = `${apiSearch}${Busqueda}`
         const response = await fetch(endpoint);
         const data = await response.json();
-       // allCharacters.results.push(data);
+        // allCharacters.results.push(data);
         //return allCharacters;
 
         return data["results"];
@@ -72,11 +72,31 @@ export const FilterHeros = async() => {
 };
 
 export const MostrarInfo = async() => {
+
+
     try {
         const endpoint = `${apiUrl}${id}`
         const response = await fetch(endpoint);
         const data = await response.json();
-    
+
+        return data;
+
+    } catch (error) {
+        console.log(error);
+        return {
+            count: 0,
+        }
+
+    };
+
+};
+
+export const fetchImage = async() => {
+    try {
+        const endpoint = `${apiUrl}${id}/image`
+        const response = await fetch(endpoint);
+        const data = await response.json();
+
         return data;
 
     } catch (error) {

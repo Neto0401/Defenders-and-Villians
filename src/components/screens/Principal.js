@@ -8,9 +8,9 @@ import ButtonCat from '../ButtonCat';
 const Principal = ({navigation}) => {
     return ( 
      <View>
-      <Header/>
-        <Busqueda navigation={navigation}/>  
-        <ButtonCat navigation={navigation}/> 
+      <Header navigation = {navigation}/>
+        <Busqueda navigation = {navigation}/>  
+        <ButtonCat navigation = {navigation}/> 
       </View>
      );
 }
