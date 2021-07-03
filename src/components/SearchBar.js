@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Searchbar,Button } from 'react-native-paper';
 import { StyleSheet,View } from 'react-native';
 import SearchResults from "./screens/SearchResults";
+import { BuscarPersonaje } from "../api";
 
 
 const Busqueda = ({navigation}) => {
@@ -12,7 +13,7 @@ const Busqueda = ({navigation}) => {
         placeholder="Ingresa el nombre de un personaje"
         value={searchQuery}
         onChangeText={setSearchQuery}
-        onIconPress={() =>{navigation.navigate("SearchResults")}}
+        onIconPress={() =>{navigation.navigate("SearchResults", BuscarPersonaje({Nombre: searchQuery}))}}
       />
   );
 };

@@ -5,15 +5,18 @@ const { apiUrl, apiSearch } = getEnvVars();
 
 let cat;
 let Busqueda;
+let id;
 
 export const searchHeroes = async() => {
-
+    const allCharacters = { results: [] };
     try {
         const endpoint = `${apiSearch}${Busqueda}`
         const response = await fetch(endpoint);
         const data = await response.json();
+       // allCharacters.results.push(data);
+        //return allCharacters;
 
-        return data;
+        return data["results"];
 
     } catch (error) {
 
@@ -68,6 +71,24 @@ export const FilterHeros = async() => {
 
 };
 
+export const MostrarInfo = async() => {
+    try {
+        const endpoint = `${apiUrl}${id}`
+        const response = await fetch(endpoint);
+        const data = await response.json();
+    
+        return data;
+
+    } catch (error) {
+        console.log(error);
+        return {
+            count: 0,
+        }
+
+    };
+
+};
+
 export const elergirCat = ({ Categoria }) => {
 
     cat = Categoria;
@@ -80,6 +101,11 @@ export const BuscarPersonaje = ({ Nombre }) => {
 
 }
 
+export const GuardarId = ({ Guardar }) => {
+
+    id = Guardar;
+
+}
 
 // export const filterCharacters = (characters) => {
 //     try {

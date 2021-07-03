@@ -3,8 +3,9 @@ import { FlatList,TouchableOpacity,Text,StyleSheet } from 'react-native';
 import { elergirCat, fetchHeroes } from '../api';
 import HeroCard from './Card';
 import ImgHero from './HeroImage';
+import { GuardarId } from '../api';
 
-const ListaHeroes = ({heroes}) => {
+const ListaHeroes = ({heroes, navigation}) => {
 
 console.log('-------------------------------------------------------');
 console.log(heroes);
@@ -16,8 +17,8 @@ console.log(heroes);
         keyExtractor = {(item) => item.id}
         renderItem={({item}) =>{
             return(
-                <TouchableOpacity style={styles.touch}>
-                    <ImgHero id={item.image.url} />
+                <TouchableOpacity style={styles.touch} onPress={()=>{navigation.navigate("InfoHeroes", GuardarId({Guardar:item.id}), console.log(item.id))}}>
+                    <ImgHero id={item.image.url}/>
                     <Text>{item.name}</Text>
                 </TouchableOpacity>
             );

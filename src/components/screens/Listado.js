@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { fetchHeroes,FilterHeros } from '../../api';
 import ListaHeroes from '../ListaHeroes';
 
-const Listado = () =>{
+const Listado = ({navigation}) =>{
     const [heroes, setHeroes] = useState({});
 
     const getHeroes = async() =>{
@@ -18,7 +18,7 @@ const Listado = () =>{
     return(
         <View>
             <Text>PANTALLA LISTADO</Text>
-            <ListaHeroes heroes = {heroes}/>
+            <ListaHeroes heroes = {heroes} navigation ={navigation}/>
         </View>
     )
 }

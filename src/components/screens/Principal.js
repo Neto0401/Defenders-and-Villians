@@ -4,11 +4,12 @@ import Header from '../../components/Appbar'
 import Busqueda from '../SearchBar';
 import ButtonCat from '../ButtonCat';
 
+
 const Principal = ({navigation}) => {
     return ( 
      <View>
       <Header/>
-        <Busqueda/>  
+        <Busqueda navigation={navigation}/>  
         <ButtonCat navigation={navigation}/> 
       </View>
      );
