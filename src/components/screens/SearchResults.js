@@ -1,9 +1,9 @@
 import React, { useEffect,useState } from 'react'
-import { View,Text } from 'react-native';
+import { View,ImageBackground } from 'react-native';
 import { searchHeroes } from '../../api';
 import ListaBusqueda from '../ListaBusqueda';
 
-const SearchResults = () => {
+const SearchResults = ({navigation}) => {
 
 const [heroes, setHeroes] = useState(null);
 
@@ -11,8 +11,6 @@ const getHeroes = async() =>{
     const response = await searchHeroes();
     setHeroes(response);
 }
-// console.log('------------------------------------------------------');
-// console.log(heroes);
 
     useEffect(() => {
         getHeroes()
@@ -20,8 +18,9 @@ const getHeroes = async() =>{
 
     return ( 
         <View>
-            <Text>Pantalla de Resultados de Busqueda</Text>
-            <ListaBusqueda Busqueda = {heroes} />
+             <ImageBackground  source= {require('../../../assets/ImagenModoClaro.png')} style={{flex:0, resizeMode:"cover", justifyContent:'center'}}>
+            <ListaBusqueda Busqueda = {heroes} navigation={navigation}/>
+            </ImageBackground>
         </View>
      );
 }

@@ -1,15 +1,10 @@
 import React from 'react';
 import { FlatList,TouchableOpacity,Text,StyleSheet } from 'react-native';
-import { elergirCat, fetchHeroes } from '../api';
-import HeroCard from './Card';
 import ImgHero from './HeroImage';
 import { GuardarId } from '../api';
+import theme from '../theme';
 
 const ListaHeroes = ({heroes, navigation}) => {
-
-console.log('-------------------------------------------------------');
-console.log(heroes);
-
     return(
         <FlatList
         data = {heroes.results}
@@ -17,9 +12,9 @@ console.log(heroes);
         keyExtractor = {(item) => item.id}
         renderItem={({item}) =>{
             return(
-                <TouchableOpacity style={styles.touch} onPress={()=>{navigation.navigate("InfoHeroes", GuardarId({Guardar:item.id}), console.log(item.id))}}>
-                    <ImgHero id={item.image.url}/>
-                    <Text>{item.name}</Text>
+                <TouchableOpacity style={styles.touch} onPress={()=>{navigation.navigate("InfoHeroes", GuardarId({Guardar:item.id}))}}>
+                    <ImgHero id={item.image.url}/>                   
+                    <Text style={styles.texto}>{item.name}</Text>
                 </TouchableOpacity>
             );
         }}
@@ -30,21 +25,21 @@ console.log(heroes);
 
 const styles = StyleSheet.create({
     touch:{
-        backgroundColor: '#fff',
-        width:'30%',
+        backgroundColor: theme.colors.bckColor,
+        width:'27%',
         height:200,
-        margin:'1%',
-        marginLeft:'2%',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
+        marginTop: '5%',
+        marginLeft:'5%',
+        borderRadius:17,    
+    },
+    texto: {
+        marginTop: -10,
+        textAlign:'center',
+        textShadowColor: theme.colors.secondaryColor,
+        textShadowOffset: {width:2, height:2},
+        textShadowRadius:5,
+    },
 
-        elevation: 6,
-            }
 })
 
 export default ListaHeroes;  

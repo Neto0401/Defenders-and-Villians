@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { Image } from 'react-native';
-import { Card,Text, Title } from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
+import { Card,Text, Title} from 'react-native-paper';
 import { fetchImage } from '../api';
-
 
 const HeroCard = ({info,powerstats,biography}) =>{
     const [imagen, setImagen] = useState({});
@@ -14,13 +13,12 @@ const HeroCard = ({info,powerstats,biography}) =>{
            getHeroes()
         },[]);
 
-        console.log("///////////////////////////////////////////");
-        console.log(biography);
     return(
         <Card>
-            <Card.Title title= {info.name}/>
+            <Title style={styles.titulo}>{info.name}</Title>
             <Card.Content>
-                <Card.Cover source={{uri:`${imagen.url}`}} style={{height:350}} />
+                <Card.Cover source={{uri:`${imagen.url}`}} style={styles.imagen} />
+                <View style={styles.contenedorText}>
                 <Title>Estadisticas</Title>
                 <Text>Combate: {powerstats.combat}</Text>
                 <Text>Inteligencia: {powerstats.intelligence}</Text>
@@ -32,9 +30,30 @@ const HeroCard = ({info,powerstats,biography}) =>{
                 <Text>Lugar de Nacimiento: {biography["place-of-birth"]}</Text>
                 <Text>Primera Aparicion: {biography.publisher}</Text>   
                 <Text>Alineacion: {biography.alignment}</Text>         
+                </View>
             </Card.Content>
         </Card>
     );
 };
+
+const styles = StyleSheet.create({
+    contenedorText:{
+      marginHorizontal: '2%',  
+    },
+    titulo:{
+        textAlign:'center',
+        fontSize: 40,
+        paddingTop: '6%',
+        paddingBottom: '3%',
+    },
+    imagen:{
+        height: 520,
+        width: '95%',
+        marginHorizontal: '2%',
+        shadowColor: "#000",
+        elevation: 14,
+        marginBottom: '6%',
+    }
+})
 
 export default HeroCard;

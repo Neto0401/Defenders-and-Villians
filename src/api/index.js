@@ -1,4 +1,3 @@
-import React from 'react'
 import getEnvVars from '../../environment';
 
 const { apiUrl, apiSearch } = getEnvVars();
@@ -13,9 +12,7 @@ export const searchHeroes = async() => {
         const endpoint = `${apiSearch}${Busqueda}`
         const response = await fetch(endpoint);
         const data = await response.json();
-        // allCharacters.results.push(data);
-        //return allCharacters;
-
+       
         return data["results"];
 
     } catch (error) {
@@ -57,8 +54,6 @@ export const FilterHeros = async() => {
         }
 
         return Heroes;
-
-        // return allCharacters.results.filter(hero => hero.biography.alignment == 'bad')
 
     } catch (error) {
 
@@ -126,13 +121,3 @@ export const GuardarId = ({ Guardar }) => {
     id = Guardar;
 
 }
-
-// export const filterCharacters = (characters) => {
-//     try {
-//         const Heroes = characters.results.filter(hero => hero.biography.alignment === 'good')
-//         return Heroes
-
-//     } catch (error) {
-
-//     }
-// }

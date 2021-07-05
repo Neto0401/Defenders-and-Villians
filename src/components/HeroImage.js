@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
     image:{
         width: '100%',
         height: '90%',
+        borderTopLeftRadius:14,
+        borderTopRightRadius:14,
     }
 });
 export default ImgHero;

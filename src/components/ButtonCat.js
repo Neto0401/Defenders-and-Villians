@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FlatList,StatusBar, StyleSheet, Text,View, TouchableOpacity,Image, SafeAreaView, Alert } from "react-native";
+import { FlatList,StatusBar, StyleSheet, Text,View, TouchableOpacity,Image} from "react-native";
 import { elergirCat } from "../api";
+import theme from "../theme";
 const DATA = [
   {
     id: "1",
@@ -49,20 +50,14 @@ const Item = ({ item, onPress }) => (
 );
 
 const ButtonCat = ({navigation}) => {
-  const [selectedId, setSelectedId] = useState(null);
 
   const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#DC07ED" : "#323CA6";
-    const color = item.id === selectedId ? 'black' : 'black';
-
     return (
       <Item
         item={item}
         onPress={() =>{navigation.navigate("Listado",elergirCat({Categoria: item.category}),console.log(item.category)
         )
       }}
-        backgroundColor={{ backgroundColor }}
-        textColor={{ color }}
       />
     );
   };
@@ -74,7 +69,6 @@ const ButtonCat = ({navigation}) => {
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        extraData={selectedId}
     />   
     </View>
   );
@@ -86,7 +80,7 @@ const styles = StyleSheet.create({
     marginBottom: 300
   },
   item: {
-    backgroundColor:'#323CA6',
+    backgroundColor:theme.colors.secondaryColor,
     padding: 0,
     width:'40%',
     height:250,
@@ -96,7 +90,7 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop:12,
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.bckColor,
     textAlign: 'center',
     fontSize: 20,
     width: '90%',

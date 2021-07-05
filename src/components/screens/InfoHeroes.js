@@ -1,4 +1,4 @@
-import { Text, View,ScrollView } from 'react-native'
+import { Text,ScrollView, ImageBackground } from 'react-native'
 import React, {useState, useEffect} from 'react';
 import HeroCard from '../Card';
 import { MostrarInfo } from '../../api';
@@ -21,7 +21,6 @@ const InfoHeores = () => {
 
     return ( 
         <ScrollView>
-        <Text>Pantalla de Informacion</Text>
         <HeroCard info={heroes} powerstats = {stats} biography = {biography}/>
         </ScrollView>
      );

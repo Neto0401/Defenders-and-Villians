@@ -1,6 +1,7 @@
 import React from 'react';
 import { Appbar } from 'react-native-paper';
 import { StyleSheet,Image } from 'react-native';
+import theme from '../theme';
 
 const Header = ({navigation}) => (
     <Appbar.Header style = {styles.header}>
@@ -15,7 +16,7 @@ const Header = ({navigation}) => (
 
 const styles = StyleSheet.create({
   header:{
-    backgroundColor:'#0F2441',
+    backgroundColor: theme.colors.primaryColor,
   },
   img:{
     marginLeft:5,
