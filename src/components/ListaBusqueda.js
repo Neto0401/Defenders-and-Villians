@@ -1,12 +1,14 @@
 import React,{useContext} from 'react';
 import { FlatList, TouchableOpacity, Text ,View, StyleSheet } from 'react-native';
-import { GuardarId } from '../api';
-//import theme from '../theme';
+import { CambioPantalla, GuardarId } from '../api';
 import themeContext from '../theme/themeContext';
 import ImgHero from './HeroImage';
 
+CambioPantalla({cambio:'Resultados de Busqueda'})
+
 const ListaBusqueda = ({Busqueda, navigation}) =>{
     const theme = useContext(themeContext);
+
     return(
         <View>
         <FlatList

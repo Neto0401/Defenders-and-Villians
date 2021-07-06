@@ -2,12 +2,14 @@ import  React, {useState,useContext} from 'react';
 import { View,Text,Switch,StyleSheet } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
 import themeContext from '../../theme/themeContext';
+import HeaderBack from '../BackBar';
 
-const Configuracion = () => {
+const Configuracion = ({navigation}) => {
     const theme = useContext(themeContext);
     const [mode, setMode] = useState(false);
     return ( 
         <View style={{backgroundColor:theme.bckColor,height:'100%'}}>
+             <HeaderBack navigation = {navigation} regreso = {'Principal'}/>
             <View style = {[styles.contenedor,{backgroundColor: theme.configCards,borderColor:theme.configCards}]}>
                 <Text style = {[styles.texto,{color:theme.textColor}]}>Modo Nocturno</Text>
                 <Switch

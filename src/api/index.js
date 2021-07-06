@@ -121,3 +121,13 @@ export const GuardarId = ({ Guardar }) => {
     id = Guardar;
 
 }
+
+export let volver = ''
+
+export const CambioPantalla = ({ cambio }) => {
+    if (cambio = 'Listado') {
+        volver = 'Listado'
+    } else {
+        volver = 'Resultados de Busqueda'
+    }
+}
