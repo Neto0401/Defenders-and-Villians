@@ -1,10 +1,15 @@
-import * as React from 'react';
+import  React, {useContext} from 'react';
 import { ProgressBar, Colors } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
+import themeContext from '../theme/themeContext';
 
-const BarraDeProgreso = ({Digito , Tipo}) => (
-  <ProgressBar style={styles.barra}  progress={Digito/100} color={Colors.red800}/>
-);
+
+const BarraDeProgreso = ({Digito , Tipo}) => {
+  const theme = useContext(themeContext);//
+  return(
+  <ProgressBar style={styles.barra}  progress={Digito/100} color={theme.progressBar}/>
+  )
+};
 
 const styles = StyleSheet.create({
   barra:{

@@ -3,12 +3,28 @@ const theme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        primaryColor:'#0F2441',
-        secondaryColor:'#323CA6',
-        textColor:'#212121',
-        bckColor:'#fff',
-        blackColor:'#000A12',
-        purpleColor:'#DC07ED',
+        theme: "light",
+        primaryColor: '#0F2441',
+        secondaryColor: '#323CA6',
+        textColor: '#212121',
+        bckColor: '#ffffff',
+        blackColor: '#000A12',
+        BckText: '#ffffff',
+        titleColor: '#ffffff',
+        progressBar: '#43A9BF',
+        configCards: '#DEDFE4'
+    },
+    darkTheme: {
+        theme: "dark",
+        primaryColor: '#000000',
+        secondaryColor: '#1E1E1E',
+        textColor: '#000000',
+        bckColor: '#090B10',
+        blackColor: '#000A12',
+        BckText: '#BB86FC',
+        titleColor: '#ffffff',
+        progressBar: '#ffffff',
+        configCards: '#BB86FC'
     }
 }
 

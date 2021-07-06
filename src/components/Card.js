@@ -1,28 +1,33 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useContext} from 'react';
 import { StyleSheet, View,ImageBackground } from 'react-native';
 import { Card,Text, Title} from 'react-native-paper';
-import theme from '../theme';
+//import theme from '../theme';
+import themeContext from '../theme/themeContext';
 import BarraDeProgreso from './ProgressBar';
 
+
+
+
 const HeroCard = ({info}) =>{
+    const theme = useContext(themeContext);
     return(
         
         <Card>
-            <ImageBackground  source= {require('../../assets/ImagenModoClaro.png')} style={{flex:0, resizeMode:"cover", justifyContent:'center'}}>
+            <ImageBackground  source= {require('../../assets/BackgroundImageFinal.png')} style={{flex:0, resizeMode:"cover", justifyContent:'center',backgroundColor:theme.bckColor}}>
             <View style = {styles.contenedorTitulo}>
-            <Title style={styles.titulo}>{info.name}</Title>
+            <Title style={[styles.titulo,{backgroundColor:theme.BckText}]}>{info.name}</Title>
             </View>
             <Card.Content>
                 <Card.Cover source={{uri:`${info.image.url}`}} style={styles.imagen} />
                 <View style={styles.contenedorText}>
-                    <View style = {styles.ContenedorDatos}>
+                    <View style = {[styles.ContenedorDatos,{backgroundColor:theme.BckText}]}>
                         <Title style = {styles.subtitulo}>Datos Biograficos</Title>
                         <Text style = {styles.Texto}>Nombre Completo: {info.biography["full-name"]}</Text>
                         <Text style = {styles.Texto}>Lugar de Nacimiento: {info.biography["place-of-birth"]}</Text>
                         <Text style = {styles.Texto}>Primera Aparicion: {info.biography.publisher}</Text>   
                         <Text style = {styles.Texto}>Alineacion: {info.biography.alignment}</Text>         
                     </View>
-                    <View style ={styles.ContenedorDatos}>
+                    <View style ={[styles.ContenedorDatos,{backgroundColor:theme.BckText}]}>
                         <Title style={styles.subtitulo}>Estadisticas</Title>
                         <View style = {styles.progressBar}>
                             <Text>Combate: {info.powerstats.combat} </Text>
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
         fontSize: 40,
         paddingTop: '6%',
         paddingBottom: '3%',
-        backgroundColor:theme.colors.bckColor,
+        //backgroundColor:theme.colors.bckColor,
     },
     Texto:{
         marginBottom:8
@@ -95,7 +100,7 @@ const styles = StyleSheet.create({
     },
     ContenedorDatos:{
         marginBottom: 15,
-        backgroundColor:theme.colors.bckColor,
+       // backgroundColor:theme.colors.bckColor,
         padding:10,
         borderRadius:10,
         paddingBottom:20

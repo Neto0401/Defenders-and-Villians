@@ -1,7 +1,9 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect,useState,useContext } from 'react'
 import { View, ImageBackground } from 'react-native'
 import { FilterHeros } from '../../api';
+import themeContext from '../../theme/themeContext';
 import ListaHeroes from '../ListaHeroes';
+
 
 const Listado = ({navigation}) =>{
     const [heroes, setHeroes] = useState({});
@@ -14,9 +16,10 @@ const Listado = ({navigation}) =>{
            getHeroes()
         },[]);
 
+        const theme = useContext(themeContext);
     return(
         <View>
-            <ImageBackground  source= {require('../../../assets/ImagenModoClaro.png')} style={{flex:0, resizeMode:"cover", justifyContent:'center'}}>
+            <ImageBackground  source= {require('../../../assets/BackgroundImageFinal.png')} style={{flex:0, resizeMode:"cover", justifyContent:'center',backgroundColor:theme.bckColor}}>
             <ListaHeroes heroes = {heroes} navigation ={navigation}/>
             </ImageBackground>
         </View>

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { FlatList,TouchableOpacity,Text,StyleSheet } from 'react-native';
 import ImgHero from './HeroImage';
 import { GuardarId } from '../api';
-import theme from '../theme';
+import themeContext from '../theme/themeContext';
 
 const ListaHeroes = ({heroes, navigation}) => {
+    const theme = useContext(themeContext);
     return(
         <FlatList
         data = {heroes.results}
@@ -12,7 +13,7 @@ const ListaHeroes = ({heroes, navigation}) => {
         keyExtractor = {(item) => item.id}
         renderItem={({item}) =>{
             return(
-                <TouchableOpacity style={styles.touch} onPress={()=>{navigation.navigate("InfoHeroes",{informacion : item}, GuardarId({Guardar:item.id}))}}>
+                <TouchableOpacity style={[styles.touch,{backgroundColor:theme.BckText}]} onPress={()=>{navigation.navigate("InfoHeroes",{informacion : item}, GuardarId({Guardar:item.id}))}}>
                     <ImgHero id={item.image.url}/>                   
                     <Text style={styles.texto}>{item.name}</Text>
                 </TouchableOpacity>
@@ -25,7 +26,6 @@ const ListaHeroes = ({heroes, navigation}) => {
 
 const styles = StyleSheet.create({
     touch:{
-        backgroundColor: theme.colors.bckColor,
         width:'27%',
         height:200,
         marginTop: '5%',
@@ -35,9 +35,6 @@ const styles = StyleSheet.create({
     texto: {
         marginTop: -10,
         textAlign:'center',
-        textShadowColor: theme.colors.secondaryColor,
-        textShadowOffset: {width:2, height:2},
-        textShadowRadius:5,
     },
 
 })

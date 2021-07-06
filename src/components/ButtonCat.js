@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, {useContext} from 'react'
 import { FlatList,StatusBar, StyleSheet, Text,View, TouchableOpacity,Image} from "react-native";
 import { elergirCat } from "../api";
-import theme from "../theme";
+import themeContext from '../theme/themeContext';
+
 const DATA = [
   {
     id: "1",
@@ -42,12 +43,15 @@ const DATA = [
   },
 ];
 
-const Item = ({ item, onPress }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item]}>
-    <Image style ={{width:'100%', height:'80%' , borderRadius:10,}} source = {{uri:`${item.img}`}} />
-    <Text style={[styles.title]}>{item.title}</Text>
-  </TouchableOpacity>
-);
+const Item = ({ item, onPress }) => {
+  const theme = useContext(themeContext);//
+  return(
+      <TouchableOpacity onPress={onPress} style={[styles.item,{backgroundColor:theme.secondaryColor}]}>
+        <Image style ={{width:'100%', height:'80%' , borderRadius:10,}} source = {{uri:`${item.img}`}} />
+        <Text style={[styles.title,{backgroundColor:theme.BckText, color:theme.textColor}]}>{item.title}</Text>
+      </TouchableOpacity>
+  )
+};
 
 const ButtonCat = ({navigation}) => {
 
@@ -80,7 +84,6 @@ const styles = StyleSheet.create({
     marginBottom: 300
   },
   item: {
-    backgroundColor:theme.colors.secondaryColor,
     padding: 0,
     width:'40%',
     height:250,
@@ -90,7 +93,6 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop:12,
-    backgroundColor: theme.colors.bckColor,
     textAlign: 'center',
     fontSize: 20,
     width: '90%',

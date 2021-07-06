@@ -12,7 +12,7 @@ export const searchHeroes = async() => {
         const endpoint = `${apiSearch}${Busqueda}`
         const response = await fetch(endpoint);
         const data = await response.json();
-       
+
         return data["results"];
 
     } catch (error) {
@@ -32,7 +32,7 @@ export const FilterHeros = async() => {
         const allCharacters = { results: [] };
         const Heroes = { results: [] };
 
-        for (let index = 1; index < 10; index++) {
+        for (let index = 1; index < 50; index++) {
 
             const endpoint = `${apiUrl}${index}`
             const response = await fetch(endpoint);

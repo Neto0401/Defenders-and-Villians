@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';//
 import { Appbar } from 'react-native-paper';
 import { StyleSheet,Image } from 'react-native';
-import theme from '../theme';
+import themeContext from '../theme/themeContext';//
 
-const Header = ({navigation}) => (
-    <Appbar.Header style = {styles.header}>
+const Header = ({navigation}) => {
+  const theme = useContext(themeContext);//
+  return(
+    <Appbar.Header style = {[{backgroundColor:theme.primaryColor}]}>
       <Image
           style={styles.img}
           source={require('../../assets/IconHeader.fw.png')}
@@ -12,12 +14,10 @@ const Header = ({navigation}) => (
        <Appbar.Content title="Defenders and Villains" />
         <Appbar.Action icon= "cog" onPress={() => {navigation.navigate("Configuracion")}} />
     </Appbar.Header>
-);
+    )
+  };
 
 const styles = StyleSheet.create({
-  header:{
-    backgroundColor: theme.colors.primaryColor,
-  },
   img:{
     marginLeft:5,
     width: 44,
