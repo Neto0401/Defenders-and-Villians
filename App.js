@@ -31,10 +31,10 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name = "Principal" component = {Principal} options = {{headerShown: false}}/>        
-          <Stack.Screen name = "Listado" component = {Listado} options={{headerStyle:{backgroundColor:theme.colors.primaryColor}, headerTintColor:theme.colors.bckColor}}/>
-          <Stack.Screen name = "Resultados de Busqueda" component = {SearchResults} options={{headerStyle:{backgroundColor:theme.colors.primaryColor}, headerTintColor:theme.colors.bckColor}}/>
-          <Stack.Screen name = "InfoHeroes" component = {InfoHeores} options={{headerStyle:{backgroundColor:theme.colors.primaryColor}, headerTintColor:theme.colors.bckColor}}/>
-          <Stack.Screen name = "Configuracion" component = {Configuracion} options={{headerStyle:{backgroundColor:theme.colors.primaryColor}, headerTintColor:theme.colors.bckColor}}/>
+          <Stack.Screen name = "Listado" component = {Listado} options={{headerStyle:{backgroundColor:theme.colors.primaryColor}, headerTintColor:theme.colors.bckColor,headerShown:false}}/>
+          <Stack.Screen name = "Resultados de Busqueda" component = {SearchResults} options={{headerStyle:{backgroundColor:theme.colors.primaryColor}, headerTintColor:theme.colors.bckColor,headerShown:false}}/>
+          <Stack.Screen name = "InfoHeroes" component = {InfoHeores} options={{headerStyle:{backgroundColor:theme.colors.primaryColor}, headerTintColor:theme.colors.bckColor,}}/>
+          <Stack.Screen name = "Configuracion" component = {Configuracion} options={{headerStyle:{backgroundColor:theme.colors.primaryColor}, headerTintColor:theme.colors.bckColor,headerShown:false}}/>
         </Stack.Navigator>  
       </NavigationContainer>
     </themeContext.Provider>
