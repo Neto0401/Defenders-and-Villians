@@ -12,7 +12,7 @@ const ListaHeroes = ({heroes, navigation}) => {
         keyExtractor = {(item) => item.id}
         renderItem={({item}) =>{
             return(
-                <TouchableOpacity style={styles.touch} onPress={()=>{navigation.navigate("InfoHeroes", GuardarId({Guardar:item.id}))}}>
+                <TouchableOpacity style={styles.touch} onPress={()=>{navigation.navigate("InfoHeroes",{informacion : item}, GuardarId({Guardar:item.id}))}}>
                     <ImgHero id={item.image.url}/>                   
                     <Text style={styles.texto}>{item.name}</Text>
                 </TouchableOpacity>

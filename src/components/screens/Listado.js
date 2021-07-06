@@ -16,7 +16,7 @@ const Listado = ({navigation}) =>{
 
     return(
         <View>
-              <ImageBackground  source= {require('../../../assets/ImagenModoClaro.png')} style={{flex:0, resizeMode:"cover", justifyContent:'center'}}>
+            <ImageBackground  source= {require('../../../assets/ImagenModoClaro.png')} style={{flex:0, resizeMode:"cover", justifyContent:'center'}}>
             <ListaHeroes heroes = {heroes} navigation ={navigation}/>
             </ImageBackground>
         </View>

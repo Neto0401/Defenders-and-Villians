@@ -4,10 +4,7 @@ import { GuardarId } from '../api';
 import theme from '../theme';
 import ImgHero from './HeroImage';
 
-const allCharacters = { results: [] };
-
 const ListaBusqueda = ({Busqueda, navigation}) =>{
-    console.log(Busqueda);
     return(
         <View>
         <FlatList
@@ -15,7 +12,7 @@ const ListaBusqueda = ({Busqueda, navigation}) =>{
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity style = {styles.contenedor} onPress={()=>{navigation.navigate("InfoHeroes", GuardarId({Guardar:item.id}), console.log(item.id))}}>
+                    <TouchableOpacity style = {styles.contenedor} onPress={()=>{navigation.navigate("InfoHeroes",{informacion : item}, GuardarId({Guardar:item.id}))}}>
                         <ImgHero id = {item.image.url} />
                         <View style={styles.contenedorTexto}>
                         <Text style={styles.texto} >{item.name}</Text>

@@ -55,7 +55,7 @@ const ButtonCat = ({navigation}) => {
     return (
       <Item
         item={item}
-        onPress={() =>{navigation.navigate("Listado",elergirCat({Categoria: item.category}),console.log(item.category)
+        onPress={() =>{navigation.navigate("Listado",elergirCat({Categoria: item.category})
         )
       }}
       />
