@@ -1,7 +1,8 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import PantallaPerfil from '../screens/Perfil';
 import MainStackNavigator from './StackNavigation';
+import StackPerfil from './StackPerfil';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -15,7 +16,7 @@ const DrawerNavigator = () =>{
             inactiveTintColor: '#ffffff'
         }}
         >
-            <Drawer.Screen name = "Perfil de Usuario" component = {PantallaPerfil}/>
+            <Drawer.Screen name = "Perfil de Usuario" component = {StackPerfil}/>
             <Drawer.Screen name = 'Explorar Personajes' component = {MainStackNavigator} />
         </Drawer.Navigator>
     )

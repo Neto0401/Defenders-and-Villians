@@ -21,4 +21,5 @@ const MainStackNavigator = () =>{
         </Stack.Navigator>  
     )
 }
+
 export default MainStackNavigator;
