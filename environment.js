@@ -10,7 +10,7 @@ const ENV = {
         storageBucket: "defenders-and-villains.appspot.com",
         messagingSenderId: "686369988871",
         appId: "1:686369988871:web:9f9e3c3831b6c9231ca5a2",
-        
+
     },
 
     production: {
@@ -20,7 +20,7 @@ const ENV = {
         projectId: "defenders-and-villains",
         storageBucket: "defenders-and-villains.appspot.com",
         messagingSenderId: "686369988871",
-        appId: "1:686369988871:web:9f9e3c3831b6c9231ca5a2",    
+        appId: "1:686369988871:web:9f9e3c3831b6c9231ca5a2",
     }
 
 }

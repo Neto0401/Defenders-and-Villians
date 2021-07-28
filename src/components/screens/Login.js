@@ -1,10 +1,11 @@
 import React from 'react'
+import { useState } from 'react';
 import { TextInput,Button } from 'react-native-paper';
 import { Text,Image, View, StyleSheet,TouchableOpacity } from 'react-native';
 
-const Login = () => {
-    const [usuario, setUsuario] = React.useState('')
-    const [contraseña, setContraseña] = React.useState('')
+const Login = ({navigation}) => {
+    const [usuario, setUsuario] = React.useState("")
+    const [contraseña, setContraseña] = React.useState("")
 
     return ( 
         <View>
@@ -17,7 +18,7 @@ const Login = () => {
                             <TextInput
                             label = "Usuario"
                             value = {usuario}
-                            onChange = {setUsuario}
+                            onChangeText = {setUsuario}
                             underlineColor = '#323AA5'
                             mode = 'outlined'
                             />
@@ -26,7 +27,7 @@ const Login = () => {
                             <TextInput
                             label = "Contraseña"
                             value = {contraseña}
-                            onChange = {setContraseña}
+                            onChangeText = {setContraseña}
                             underlineColor = '#323AA5'
                             mode = 'outlined'
                             />
@@ -52,12 +53,25 @@ const Login = () => {
                                 marginBottom:20,
                                 width:'80%'
                                 }}>
-                                <Button style={{backgroundColor:'#333BA6'}}  icon = 'camera' mode = 'contained'>
+                                <Button 
+                                style={{
+                                    backgroundColor:'#333BA6',
+                                    borderRadius:100
+                                }}  
+                            icon = 'camera' 
+                            mode = 'contained'>
                                     Iniciar Sesion
                                 </Button>
                             </View>
                             <View>
-                            <Button style ={{backgroundColor:'#333BA6'}} icon = 'camera' mode = 'contained'>
+                            <Button 
+                            onPress = {()=>{navigation.navigate('Registrarse')}}
+                            style ={{
+                                backgroundColor:'#333BA6',
+                                borderRadius:100
+                                }} 
+                            icon = 'camera'
+                            mode = 'contained'>
                                     Registrarse
                                 </Button>
                             </View>
@@ -78,7 +92,7 @@ const styles = StyleSheet.create({
         marginTop:70,
     },
     textInput:{
-        top:70, 
+        top:70,
         width:'80%'
     },
     subContenedorText:{
