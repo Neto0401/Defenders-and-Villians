@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { FlatList,TouchableOpacity,Text,StyleSheet } from 'react-native';
 import ImgHero from './HeroImage';
-import { CambioPantalla, GuardarId } from '../api';
+import { CambioPantalla, GuardarId } from './api/index';
 import themeContext from '../theme/themeContext';
 
 CambioPantalla({cambio:'Listado'})

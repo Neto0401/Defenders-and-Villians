@@ -1,6 +1,6 @@
 import React, { useEffect,useState,useContext } from 'react'
 import { View,ImageBackground } from 'react-native';
-import { searchHeroes } from '../../api';
+import { searchHeroes } from '../api/index';
 import themeContext from '../../theme/themeContext';
 import HeaderBack from '../BackBar';
 import ListaBusqueda from '../ListaBusqueda';

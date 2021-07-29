@@ -1,14 +1,15 @@
+import { StatusBar } from "expo-status-bar";
 import React,{useState,useEffect} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import theme from './src/theme';
-import { EventRegister } from 'react-native-event-listeners';
-import themeContext from './src/theme/themeContext';
-import DrawerNavigator from './src/components/navigation/DrawerNavigation';
-import StackLogin from './src/components/navigation/StackLogin';
-import { Provider as AuthContext } from './src/components/providers/AuthContext';
-
+import Navigation from "./src/components/navigation";
+import theme from "./src/theme"
+import { EventRegister } from "react-native-event-listeners";
+import themeContext from "./src/theme/themeContext";
+import { Provider as AuthProvider } from "./src/providers/AuthContext";
+import { Provider as ProjectProvider } from "./src/providers/ProjectContext";
+import LongTimers from "./src/utils/LongTimer";
 
 export default function App() {
+  LongTimers();
   const [mode, setMode] = useState(false);
 
   useEffect(() =>{
@@ -21,14 +22,12 @@ export default function App() {
   })
   
   return (
-      <themeContext.Provider value ={mode === true ? theme.darkTheme : theme.colors}>
-          <StackLogin/>
-      </themeContext.Provider>
+    <ProjectProvider>
+      <AuthProvider>
+        <themeContext.Provider value ={mode === true ? theme.darkTheme : theme.colors}>
+          <Navigation />
+        </themeContext.Provider>
+      </AuthProvider>
+    </ProjectProvider>
   );
 }
-
-{/* <themeContext.Provider value ={mode === true ? theme.darkTheme : theme.colors}>
-<NavigationContainer>
-  <DrawerNavigator />
-</NavigationContainer>
-</themeContext.Provider> */}

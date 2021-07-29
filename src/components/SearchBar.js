@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Searchbar } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
-import { BuscarPersonaje } from "../api";
+import { BuscarPersonaje } from "./api/index";
 
 
 const Busqueda = ({navigation}) => {

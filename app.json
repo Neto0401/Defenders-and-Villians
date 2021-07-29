@@ -1,32 +1,30 @@
 {
-  "expo": {
-    "name": "Defenders-and-Villains",
-    "slug": "Defenders-and-Villains",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "expo": {
+        "name": "Defenders-and-Villians",
+        "slug": "Defenders-and-Villians",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/Icono.png",
+        "splash": {
+            "image": "./assets/LogoPequeño.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#FBFBFB"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/Icono.png",
+                "backgroundColor": "#FBFBFB"
+            }
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        }
     }
-  }
 }

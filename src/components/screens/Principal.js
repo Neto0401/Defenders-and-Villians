@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
 import { View, ImageBackground} from 'react-native';
-import Header from '../../components/Appbar'
+import Header from '../../components/Appbar';
 import Busqueda from '../SearchBar';
 import ButtonCat from '../ButtonCat';
 import themeContext from '../../theme/themeContext';

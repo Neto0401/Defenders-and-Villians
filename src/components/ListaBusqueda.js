@@ -1,6 +1,6 @@
 import React,{useContext} from 'react';
 import { FlatList, TouchableOpacity, Text ,View, StyleSheet } from 'react-native';
-import { CambioPantalla, GuardarId } from '../api';
+import { CambioPantalla, GuardarId } from './api/index';
 import themeContext from '../theme/themeContext';
 import ImgHero from './HeroImage';
 

@@ -1,6 +1,6 @@
 import React, { useEffect,useState,useContext } from 'react'
 import { View, ImageBackground } from 'react-native'
-import { FilterHeros } from '../../api';
+import { FilterHeros } from '../api/index';
 import themeContext from '../../theme/themeContext';
 import HeaderBack from '../BackBar';
 import ListaHeroes from '../ListaHeroes';

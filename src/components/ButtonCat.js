@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import { FlatList,StatusBar, StyleSheet, Text,View, TouchableOpacity,Image} from "react-native";
-import { elergirCat } from "../api";
+import { elergirCat } from "./api/index";
 import themeContext from '../theme/themeContext';
 
 const DATA = [
