@@ -67,8 +67,6 @@ export const FilterHeros = async() => {
 };
 
 export const MostrarInfo = async() => {
-
-
     try {
         const endpoint = `${apiUrl}${id}`
         const response = await fetch(endpoint);
@@ -88,7 +86,8 @@ export const MostrarInfo = async() => {
 
 export const fetchImage = async() => {
     try {
-        const endpoint = `${apiUrl}${id}/image`
+        var aleatorio = Math.floor((Math.random() * (730 - 0 + 1)) + 0);
+        const endpoint = `${apiUrl}${aleatorio}/image`
         const response = await fetch(endpoint);
         const data = await response.json();
 

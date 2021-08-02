@@ -5,7 +5,7 @@ import theme from "./src/theme"
 import { EventRegister } from "react-native-event-listeners";
 import themeContext from "./src/theme/themeContext";
 import { Provider as AuthProvider } from "./src/providers/AuthContext";
-import { Provider as ProjectProvider } from "./src/providers/ProjectContext";
+import { Provider as PerfilContext } from "./src/providers/InfoPerfilContext";
 import LongTimers from "./src/utils/LongTimer";
 
 export default function App() {
@@ -22,12 +22,12 @@ export default function App() {
   })
   
   return (
-    <ProjectProvider>
-      <AuthProvider>
-        <themeContext.Provider value ={mode === true ? theme.darkTheme : theme.colors}>
-          <Navigation />
-        </themeContext.Provider>
-      </AuthProvider>
-    </ProjectProvider>
+    <PerfilContext>
+        <AuthProvider>
+          <themeContext.Provider value ={mode === true ? theme.darkTheme : theme.colors}>
+            <Navigation />
+          </themeContext.Provider>
+        </AuthProvider>
+    </PerfilContext>
   );
 }

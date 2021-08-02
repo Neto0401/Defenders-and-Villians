@@ -34,7 +34,7 @@ function Navigation() {
         <>
           {state.loggedIn ? (
             <Stack.Navigator>
-              <Stack.Screen name="Home" component={DrawerNavigator} />
+              <Stack.Screen options={{headerShown: false}} name="Home" component={DrawerNavigator} />
             </Stack.Navigator>
           ) : (
             <Stack.Navigator screenOptions={{ headerShown: false }}>

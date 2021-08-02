@@ -2,24 +2,28 @@ import React from 'react'
 import { Text,View,TouchableOpacity,StyleSheet,ImageBackground } from 'react-native';
 import ImagendePerfil from '../ImagendePerfil'
 import themeContext from '../../theme/themeContext';
+import { Context as AuthContext } from '../../providers/AuthContext';
 import { useContext } from 'react';
 
 const PantallaPerfil = ({navigation}) => {
+    const { state } = useContext (AuthContext);
     const theme = useContext(themeContext);
+
       return ( 
       <View>
           <ImageBackground  source= {require('../../../assets/BackgroundImageFinal.png')} style={{backgroundColor:theme.bckColor}}>            
-          <ImagendePerfil/>
+          <ImagendePerfil Nombre = {state.user.nickname} Imagen = {state.user.imagen}/>
             <View style = {styles.contenedorBotones}>
                 <TouchableOpacity style = {styles.boton} 
                 onPress = {() => {navigation.navigate('Minijuego')}}>
                   <Text style ={styles.titulo}>Nueva Partida</Text>      
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.boton}>
-                  <Text style ={styles.titulo}>Tu coleccion: {1} / {750}</Text>
+                <TouchableOpacity style = {styles.boton}
+                onPress = {() => {navigation.navigate('Coleccion')}}>
+                  <Text style ={styles.titulo}>Tu coleccion: {state.user.coleccionCantidad} / {750}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.boton}>
-                  <Text style ={styles.titulo}>Tu puntuacion Total: {} </Text>
+                  <Text style ={styles.titulo}>Tu puntuacion Total: {state.user.puntuacion} Pts </Text>
                 </TouchableOpacity>
             </View>
             </ImageBackground>

@@ -2,15 +2,15 @@ import React from 'react';
 import { Image,StyleSheet,View,Text } from 'react-native';
 
 
-const ImagendePerfil = () => {
+const ImagendePerfil = ({Nombre, Imagen}) => {
     return ( 
         <View style = {styles.contenedor}>
             <View style = {styles.subContenedorTitulo}>
                 <Text style = {styles.textoTitulo}>Defenders and Villains</Text>
             </View>
             <View style = {styles.subContenedorAvatar}>
-                <Image style = {styles.imagenAvatar} source = {{uri: 'https://elfarolcultural.com/wp-content/uploads/2020/09/spider-man-1876543.jpg'}}/>
-                <Text style ={styles.nickname} >Josxtillo</Text>
+                <Image style = {styles.imagenAvatar} source = {{uri:`${Imagen}`}}/>
+                <Text style ={styles.nickname} >{Nombre}</Text>
             </View>
         </View>
      );
