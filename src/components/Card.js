@@ -1,12 +1,8 @@
 import React, {useState, useEffect,useContext} from 'react';
 import { StyleSheet, View,ImageBackground } from 'react-native';
 import { Card,Text, Title} from 'react-native-paper';
-//import theme from '../theme';
 import themeContext from '../theme/themeContext';
 import BarraDeProgreso from './ProgressBar';
-
-
-
 
 const HeroCard = ({info}) =>{
     const theme = useContext(themeContext);
@@ -100,7 +96,6 @@ const styles = StyleSheet.create({
     },
     ContenedorDatos:{
         marginBottom: 15,
-       // backgroundColor:theme.colors.bckColor,
         padding:10,
         borderRadius:10,
         paddingBottom:20

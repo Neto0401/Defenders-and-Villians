@@ -1,7 +1,6 @@
-import { set } from 'date-fns/esm';
 import React from 'react'
 import { useEffect, useContext, useState } from 'react';
-import { Text,View,TouchableOpacity,StyleSheet, Modal, Pressable } from 'react-native';
+import { Text,View,TouchableOpacity,StyleSheet, Modal, Pressable, Image } from 'react-native';
 import { Context as PreguntasContext } from '../../providers/InfoPerfilContext';
 import { fetchImage } from '../api';
 
@@ -11,6 +10,8 @@ const PantallaMinijuego = ({ navigation }) => {
   const [ cuenta, setCuenta] = useState(1);
   const [vidas, setVidas] = useState(3);
   const [modalVisible, setModalVisible] = useState(false);
+  const [marca, setMarca] = useState(false);
+
 
   const [personaje, setPersonaje] = useState(null)
   const fetchPersonaje = async() =>{
@@ -22,32 +23,34 @@ const PantallaMinijuego = ({ navigation }) => {
     getPreguntas(cuenta)
     fetchPersonaje()
   }, []);
-  console.log(personaje);
-
+  
   //Cambiar el color del boton 
   const colours = ['blue', 'red','green'];
   const incializarColores = () => colours[0]
   const colorCorrecto = () => colours[2];
   const colorIncorrecto = () => colours[1];
   const [colour, setColour] = useState(incializarColores());
-  const [respuesta, setRespuesta] = useState(false)
+  const [resp, setRespuesta] = useState(false)
   
-
   function EvaluarRespuesta (respuesta) { 
-    setRespuesta(true)
+   if(resp == false ){
+     
     if(vidas == 0){
       navigation.navigate('Derrota');
     }
     if (respuesta === statePreguntas.preguntas.correcta) {
+      setRespuesta(true);
       setColour(colorCorrecto());  
     }else{
+      setRespuesta(true);
       setColour(colorIncorrecto());
       setVidas(vidas - 1)
-    }  
+    }
+  }  
   }
   
   function siguiente() {
-    if(respuesta === false){
+    if(resp === false){
       setModalVisible(true)
     }else{
       if(vidas == 0){
@@ -64,17 +67,12 @@ const PantallaMinijuego = ({ navigation }) => {
   }
 
   }
-
-  
-  // console.log("///////////////////////////////////");
-  // console.log(statePreguntas);
-
     return (
       
     <View style = {styles.contenedor}>
       <View style = {styles.encabezado}>
         <Text style ={styles.textoEncabezado}>Pregunta numero: {cuenta}/7</Text>
-        <Text style = {styles.textoEncabezado}>Vidas: {vidas}</Text>
+        <Text style = {styles.textoEncabezado}>Vidas: {vidas} <Image source={require('../../../assets/vida.png')} style={{width:20, height:20 }}/></Text> 
       </View>
       <View style = {styles.pregunta}>
         <Text style = {styles.textoPregunta}>{statePreguntas.preguntas.pregunta}</Text>

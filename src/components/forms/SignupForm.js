@@ -4,7 +4,6 @@ import { Button, Caption, Text, TextInput } from "react-native-paper";
 import { Context as AuthContext } from "../../providers/AuthContext";
 import { Context as InfoContext } from "../../providers/InfoPerfilContext";
 import { validate } from "email-validator";
-import Avatar from "../Avatar";
 
 function SignupForm({ navigation }) {
   const { state, signup } = useContext(AuthContext);
@@ -30,7 +29,6 @@ function SignupForm({ navigation }) {
   const [imagen, setImagen] = useState(Imagenes.uno);
   const onPress2 = () => setImagen(Imagenes.dos);
   const onPress = () => setImagen(Imagenes.uno);  
-
 
   // Verificar si el usuario se registra en la app
   useEffect(() => {

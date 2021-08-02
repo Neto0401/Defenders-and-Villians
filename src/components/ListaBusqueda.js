@@ -33,7 +33,6 @@ const ListaBusqueda = ({Busqueda, navigation}) =>{
 
 const styles = StyleSheet.create({
     contenedor:{
-        //backgroundColor: theme.colors.secondaryColor,
         width: '70%',
         height: 400,
         marginHorizontal: '15%',
@@ -45,7 +44,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign:'center',
         width: '90%',
-       // backgroundColor: theme.colors.bckColor,
         marginBottom: 5,
         borderRadius: 10,
     },
@@ -53,7 +51,6 @@ const styles = StyleSheet.create({
         fontSize: 10,
         marginVertical: 3,
         textAlign:'center',
-        //backgroundColor: theme.colors.bckColor,
         width: '50%',
         borderRadius: 14,
     },

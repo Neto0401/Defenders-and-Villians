@@ -1,9 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
-
+import { View, Image} from 'react-native';
 const PantallaDerrota = () => {
     return ( 
-        <Text>Esta es la pantalla de derrota</Text>
+        <View style={{backgroundColor:'#201E25', flex:1}}>
+        <Image 
+        source={require('../../../assets/GAMEOVER.gif')}  
+        style={{width: 480, height: 700 }}
+    />
+        </View>
      );
 }
  

@@ -5,11 +5,6 @@ import { Context as AuthContext } from "../../providers/AuthContext";
 import * as SplashScreen from "expo-splash-screen";
 import Signin from "../screens/Signin";
 import Signup from "../screens/Signup";
-import Home from "../screens/Home";
-import CreateProject from "../screens/CreateProject";
-import AddTask from "../screens/AddTask";
-import PantallaPerfil from "../screens/Perfil"
-import Configuracion from "../screens/Config"
 import DrawerNavigator from "./DrawerNavigator";
 
 const Stack = createStackNavigator();
