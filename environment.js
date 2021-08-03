@@ -10,9 +10,17 @@ const ENV = {
         storageBucket: "defendersandvillains.appspot.com",
         messagingSenderId: "436769309617",
         appId: "1:436769309617:web:d0c9fbf032f768e5da7390",
-
     },
-
+    staging: {
+        apiUrl: "https://superheroapi.com/api/4058882490856709/",
+        apiSearch: "https://superheroapi.com/api/4058882490856709/search/",
+        apiKey: "AIzaSyDpJtljFLlFkDLhjOn-UMn-3LdumCig19w",
+        authDomain: "defendersandvillains.firebaseapp.com",
+        projectId: "defendersandvillains",
+        storageBucket: "defendersandvillains.appspot.com",
+        messagingSenderId: "436769309617",
+        appId: "1:436769309617:web:d0c9fbf032f768e5da7390",
+    },
     production: {
         apiUrl: "https://superheroapi.com/api/4058882490856709/",
         apiKey: "AIzaSyDpJtljFLlFkDLhjOn-UMn-3LdumCig19w",
