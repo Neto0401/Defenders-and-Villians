@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FlatList,View,Image,StyleSheet,Text,TouchableOpacity } from 'react-native';
-
-const Item = ({item}) => (
-    <View>
-        <View style = {styles.elementos}>
-        <Image source = {{uri:`${item.imagen}`}} style = {styles.imagen}/>
-        <Text style = {styles.textos}>{item.nombre}</Text>
-        <TouchableOpacity style = {styles.boton}>
-            <Text style = {styles.textos}>Eliminar</Text>
-        </TouchableOpacity>
-        </View>
-    </View>
-
-)
+import themeContext from '../theme/themeContext';
 
 const ListaColeccion = ({coleccion}) => {
+    const theme = useContext(themeContext);
+    const Item = ({item}) => (
+        <View>
+            <View style = {[styles.elementos,{backgroundColor:theme.BckText}]}>
+            <Image source = {{uri:`${item.imagen}`}} style = {[styles.imagen,{backgroundColor:theme.bckColor}]}/>
+            <Text style = {styles.textos}>{item.nombre}</Text>
+            <TouchableOpacity style = {[styles.boton,{backgroundColor:theme.botonSalir}]}>
+                <Text style = {styles.textosBoton}>Eliminar</Text>
+            </TouchableOpacity>
+            </View>
+        </View>
+    
+    )
     const renderItem = ({item}) =>{
         return(
             <Item
@@ -28,7 +29,7 @@ const ListaColeccion = ({coleccion}) => {
         <FlatList
             data = {coleccion}
             renderItem = {renderItem}
-            numColumns = {'2'}
+            numColumns = {'3'}
         />
     </View>
      );
@@ -36,9 +37,10 @@ const ListaColeccion = ({coleccion}) => {
 
 const styles = StyleSheet.create({
     imagen:{
-        width:180,
-        height:230,
-        borderRadius:10
+        width:130,
+        height:170,
+        borderTopLeftRadius:17,
+        borderTopRightRadius:17,
     },
     contenedor:{
         alignItems:'center',
@@ -46,17 +48,23 @@ const styles = StyleSheet.create({
     textos:{
         textAlign:'center',
         fontSize:15,
-        padding:4
+        paddingVertical:10
     },
     elementos:{
         backgroundColor:'#ffffff',
-        marginHorizontal:20,
-        marginVertical:10,
-        borderRadius:10
+        margin:9,
+        borderRadius:17,
+        justifyContent:'center',
+        alignContent:'center'
+    },
+    textosBoton:{
+        textAlign:'center',
+        fontSize:15,
+        paddingVertical:4,
+        color:'#ffffff'
     },
     boton:{
-        backgroundColor:'#E44343',
-        padding:7,
+        backgroundColor:'#D50000',
         borderBottomRightRadius:10,
         borderBottomLeftRadius:10
     }

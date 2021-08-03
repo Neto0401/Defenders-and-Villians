@@ -9,7 +9,7 @@ import { View, Text, TouchableOpacity, ImageBackground, StyleSheet} from 'react-
                 <TouchableOpacity style = {styles.boton}
                 onPress = {()=>(navigation.navigate("Perfil"))}
                 >
-                        <Text>Volver a la pantalla de inicio</Text>
+                  <Text>Volver a la pantalla de inicio</Text>
                 </TouchableOpacity>
             </View>
          </ImageBackground>
@@ -26,6 +26,14 @@ import { View, Text, TouchableOpacity, ImageBackground, StyleSheet} from 'react-
          justifyContent:'flex-end',
          alignItems:'center',
          marginBottom:'37%',
+         shadowColor: "#000",
+         shadowOffset: {
+           width: 0,
+           height: 6,
+         },
+         shadowOpacity: 0.39,
+         shadowRadius: 8.30,
+         elevation: 13,
      },
      imagen:{
          width:'100%',

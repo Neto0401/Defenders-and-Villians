@@ -6,7 +6,7 @@ import { Context as AuthContext } from '../../providers/AuthContext';
 import { useContext } from 'react';
 
 const PantallaPerfil = ({navigation}) => {
-    const { state } = useContext (AuthContext);
+    const { state,signout } = useContext (AuthContext);
     const theme = useContext(themeContext);
 
       return ( 
@@ -14,16 +14,20 @@ const PantallaPerfil = ({navigation}) => {
           <ImageBackground  source= {require('../../../assets/BackgroundImageFinal.png')} style={{backgroundColor:theme.bckColor}}>            
           <ImagendePerfil Nombre = {state.user.nickname} Imagen = {state.user.imagen}/>
             <View style = {styles.contenedorBotones}>
-                <TouchableOpacity style = {styles.boton} 
+            <TouchableOpacity style = {[styles.boton,{backgroundColor:theme.BckText}]}
                 onPress = {() => {navigation.navigate('Minijuego')}}>
                   <Text style ={styles.titulo}>Nueva Partida</Text>      
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.boton}
+                <TouchableOpacity style = {[styles.boton,{backgroundColor:theme.BckText}]}
                 onPress = {() => {navigation.navigate('Coleccion')}}>
-                  <Text style ={styles.titulo}>Tu coleccion: {state.user.coleccionCantidad} / {750}</Text>
+                  <Text style ={styles.titulo}>Mi coleccion</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.boton}>
-                  <Text style ={styles.titulo}>Tu puntuacion Total: {state.user.puntuacion} Pts </Text>
+                <TouchableOpacity style = {[styles.boton,{backgroundColor:theme.BckText}]}>
+                  <Text style ={styles.titulo}>Tu puntuacion Total: 999 Pts </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style = {[styles.botonSalir,{backgroundColor:theme.botonSalir}]}
+                onPress = {signout}>
+                  <Text style ={styles.tituloCerrar}>Cerrar Sesion</Text>
                 </TouchableOpacity>
             </View>
             </ImageBackground>
@@ -38,7 +42,7 @@ const PantallaPerfil = ({navigation}) => {
     },
     boton:{
       backgroundColor: '#ffffff',
-      width:450,
+      width:350,
       height:80,
       marginBottom:30,
       borderRadius:17,
@@ -59,6 +63,28 @@ const PantallaPerfil = ({navigation}) => {
       borderRadius:8,
       textAlign:'center'
     },
+    botonSalir:{
+      backgroundColor: '#D50000',
+      width:350,
+      height:80,
+      marginBottom:30,
+      borderRadius:17,
+      justifyContent:'center',
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+    },
+    tituloCerrar:{
+      fontSize: 20,
+      color:'#ffffff',
+      borderRadius:8,
+      textAlign:'center'
+    }
   })
    
   export default PantallaPerfil;

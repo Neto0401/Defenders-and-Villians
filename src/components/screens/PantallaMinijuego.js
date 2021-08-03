@@ -1,11 +1,12 @@
 import React from 'react'
 import { useEffect, useContext, useState } from 'react';
-import { Text,View,TouchableOpacity,StyleSheet, Modal, Pressable, Image } from 'react-native';
+import { Text,View,TouchableOpacity,StyleSheet, Modal, Pressable, Image,ImageBackground } from 'react-native';
 import { Context as PreguntasContext } from '../../providers/InfoPerfilContext';
 import { fetchImage } from '../api';
+import themeContext from '../../theme/themeContext';
 
 const PantallaMinijuego = ({ navigation }) => {
-
+  const theme = useContext(themeContext);
   const { state: statePreguntas, getPreguntas} = useContext (PreguntasContext);
   const [ cuenta, setCuenta] = useState(1);
   const [vidas, setVidas] = useState(3);
@@ -32,7 +33,7 @@ const PantallaMinijuego = ({ navigation }) => {
   }, []);
   
   //Cambiar el color del boton 
-  const colours = ['#3CDCD4', 'red','green'];
+  const colours = [theme.botonJuego, 'red','green'];
   const incializarColores = () => colours[0]
   const colorCorrecto = () => colours[2];
   const colorIncorrecto = () => colours[1];
@@ -71,7 +72,11 @@ const PantallaMinijuego = ({ navigation }) => {
         navigation.navigate('Fin');
       }
       if (cuenta == 7) {
+        if(vidas==0 && cuenta==7){
+          navigation.navigate('Fin');
+        }else{
         {navigation.navigate('Felicitaciones',{premio:personaje})};
+      }
       }else{
       setCuenta(cuenta + 1)
       getPreguntas(cuenta + 1)
@@ -83,12 +88,13 @@ const PantallaMinijuego = ({ navigation }) => {
   }
     return (
       
-    <View style = {styles.contenedor}>
-      <View style = {styles.encabezado}>
+      <View style = {[styles.contenedor,{backgroundColor:theme.fondoJuego}]}>
+      <ImageBackground source = {require('../../../assets/FondoJugar.png')} style ={styles.fondo}>
+      <View style = {[styles.encabezado,{backgroundColor:theme.primaryColor}]}>
         <Text style ={styles.textoEncabezado}>Pregunta: {cuenta}/7</Text>
         <Image style = {styles.vidas} source={{uri:`${imagen}`}}/>
       </View>
-      <View style = {styles.pregunta}>
+      <View style = {[styles.pregunta,{backgroundColor:theme.BckText}]}>
         <Text style = {styles.textoPregunta}>{statePreguntas.preguntas.pregunta}</Text>
       </View>
       <View>
@@ -96,24 +102,24 @@ const PantallaMinijuego = ({ navigation }) => {
           <TouchableOpacity 
           style = {[styles.boton,{backgroundColor:colour}]}
           onPress = {() => (EvaluarRespuesta(statePreguntas.preguntas.respuesta1))}>
-            <Text style ={styles.titulo}>{statePreguntas.preguntas.respuesta1}</Text>      
+          <Text style ={[styles.titulo,{color:theme.bckColor}]}>{statePreguntas.preguntas.respuesta1}</Text>      
           </TouchableOpacity>
           <TouchableOpacity 
           style = {[styles.boton,{backgroundColor:colour}]}
           onPress = {() => (EvaluarRespuesta(statePreguntas.preguntas.respuesta2))}>
-            <Text style ={styles.titulo}>{statePreguntas.preguntas.respuesta2}</Text>
+           <Text style ={[styles.titulo,{color:theme.bckColor}]}>{statePreguntas.preguntas.respuesta2}</Text>
           </TouchableOpacity>
         </View>   
         <View style = {styles.contendorBoton}>
           <TouchableOpacity 
           style = {[styles.boton,{backgroundColor:colour}]}
           onPress = {() => (EvaluarRespuesta(statePreguntas.preguntas.respuesta3))}>
-            <Text style ={styles.titulo}>{statePreguntas.preguntas.respuesta3}</Text>
+           <Text style ={[styles.titulo,{color:theme.bckColor}]}>{statePreguntas.preguntas.respuesta3}</Text>
           </TouchableOpacity>
           <TouchableOpacity 
           style = {[styles.boton,{backgroundColor:colour}]}
           onPress = {() => (EvaluarRespuesta(statePreguntas.preguntas.respuesta4))}>
-            <Text style ={styles.titulo}>{statePreguntas.preguntas.respuesta4}</Text>
+            <Text style ={[styles.titulo,{color:theme.bckColor}]}>{statePreguntas.preguntas.respuesta4}</Text>
           </TouchableOpacity>
         </View>
           <View style = {styles.contenedorBotonSiguiente}>
@@ -126,30 +132,31 @@ const PantallaMinijuego = ({ navigation }) => {
             setModalVisible(!modalVisible);
             }}
           >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Debes elegir una respuesta.</Text>
+              <View style={styles.centeredView}>
+              <View style={[styles.modalView,{backgroundColor:theme.bckColor}]}>
+              <Text style={[styles.modalText,{color:theme.header}]}>Debes elegir una respuesta.</Text>
               <Pressable
-                style={[styles.button, styles.buttonClose]}
+               style={[styles.button, styles.buttonClose,{backgroundColor:theme.botonJuego}]}
                 onPress={() => setModalVisible(!modalVisible)}
               >
-                <Text style={styles.textStyle}>Entendido!</Text>
+                <Text style={[styles.textStyle,{color:theme.titleColor}]}>Entendido!</Text>
               </Pressable>
             </View>
           </View>
             </Modal>
             <TouchableOpacity 
-            style = {styles.botonNext}
+            style = {[styles.botonNext,{backgroundColor:theme.botonJuego}]}
             onPress = {()=>(siguiente())}>
-              <Text style ={styles.tituloSiguiente}>Siguiente Pregunta</Text>
+              <Text style ={[styles.tituloSiguiente,{color:theme.bckColor}]}>Siguiente Pregunta</Text>
             </TouchableOpacity>
             <TouchableOpacity 
-            style = {styles.salir}
+            style = {[styles.salir,{backgroundColor:theme.botonSalir}]} 
             onPress = {()=>(navigation.navigate("Perfil"))}>
-              <Text style ={styles.tituloSiguiente}>Salir</Text>  
+              <Text style ={[styles.tituloSiguiente,{color:theme.bckColor}]}>Salir</Text>  
             </TouchableOpacity>
           </View>
         </View>
+        </ImageBackground>
     </View>
 
      );
@@ -157,7 +164,6 @@ const PantallaMinijuego = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     contenedor:{
-      backgroundColor:'#ffffff',
       flex:1,
     },
     contenedorBotones:{
@@ -166,12 +172,11 @@ const styles = StyleSheet.create({
       marginTop: '10%',
     },
     encabezado:{
+      paddingTop:20,
       flexDirection:'row',
       justifyContent:'space-between',
       alignItems:'center',
-      marginTop:30,
       marginBottom:20,
-      backgroundColor:'#0E2340'
     },
     textoEncabezado:{
       padding:30,
@@ -179,7 +184,6 @@ const styles = StyleSheet.create({
       color:'#ffffff'
     },
     pregunta:{
-      backgroundColor:'#ffffff',
       marginHorizontal:'10%',
       padding:60,
       borderRadius:17,
@@ -323,6 +327,10 @@ const styles = StyleSheet.create({
       width:200,
       height:30,
       resizeMode:'contain',
+    },
+    fondo:{
+      width:'100%',
+      height:'100%'
     }
   })
 
