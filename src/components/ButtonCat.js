@@ -81,7 +81,7 @@ const ButtonCat = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight || 0,
-    marginBottom: 300
+    marginBottom: 280
   },
   item: {
     padding: 0,

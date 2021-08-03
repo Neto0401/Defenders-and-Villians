@@ -10,13 +10,13 @@ const ListaBusqueda = ({Busqueda, navigation}) =>{
     const theme = useContext(themeContext);
 
     return(
-        <View>
+        <View style= {styles.contenedorGeneral}>
         <FlatList
             data={Busqueda}
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity style = {[styles.contenedor,{backgroundColor:theme.secondaryColor}]} onPress={()=>{navigation.navigate("InfoHeroes",{informacion : item}, GuardarId({Guardar:item.id}))}}>
+                    <TouchableOpacity style = {[styles.contenedor,{backgroundColor:theme.secondaryColor}]} onPress={()=>{navigation.navigate("Tarjeta del Personaje",{informacion : item}, GuardarId({Guardar:item.id}))}}>
                         <ImgHero id = {item.image.url} />
                         <View style={styles.contenedorTexto}>
                         <Text style={[styles.texto,{backgroundColor:theme.BckText}]} >{item.name}</Text>
@@ -32,6 +32,9 @@ const ListaBusqueda = ({Busqueda, navigation}) =>{
 }
 
 const styles = StyleSheet.create({
+    contenedorGeneral:{
+        paddingBottom:150
+    },
     contenedor:{
         width: '70%',
         height: 400,

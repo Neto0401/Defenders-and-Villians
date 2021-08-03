@@ -1,5 +1,5 @@
 import React, { useEffect,useState,useContext } from 'react'
-import { View, ImageBackground } from 'react-native'
+import { View, ImageBackground, StyleSheet } from 'react-native'
 import { FilterHeros } from '../api/index';
 import themeContext from '../../theme/themeContext';
 import HeaderBack from '../BackBar';
@@ -18,7 +18,7 @@ const Listado = ({navigation}) =>{
 
         const theme = useContext(themeContext);
     return(
-        <View>
+        <View style = {styles.contenedor}>
             <HeaderBack navigation = {navigation} regreso = {'Principal'}/>
             <ImageBackground  source= {require('../../../assets/BackgroundImageFinal.png')} style={{flex:0, resizeMode:"cover", justifyContent:'center',backgroundColor:theme.bckColor}}>
             <ListaHeroes heroes = {heroes} navigation ={navigation}/>
@@ -26,5 +26,12 @@ const Listado = ({navigation}) =>{
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    contenedor:{
+        paddingBottom:160
+    }
+})
+
 
 export default Listado;
