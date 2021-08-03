@@ -37,14 +37,13 @@ const ListaColeccion = ({coleccion}) => {
 
 const styles = StyleSheet.create({
     imagen:{
-        width:130,
-        height:170,
+        width:115,
+        height:145,
         borderTopLeftRadius:17,
         borderTopRightRadius:17,
     },
     contenedor:{
         alignItems:'center',
-        marginRight:22,
     },
     textos:{
         textAlign:'center',
@@ -53,8 +52,9 @@ const styles = StyleSheet.create({
     },
     elementos:{
         backgroundColor:'#ffffff',
-        margin:9,
         borderRadius:17,
+        marginHorizontal:5,
+        marginVertical:10,
         justifyContent:'center',
         alignContent:'center'
     },
