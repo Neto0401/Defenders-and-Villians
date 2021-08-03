@@ -23,15 +23,11 @@ export default function App() {
 
     return ( <
         PerfilContext >
-        <
-        AuthProvider >
-        <
-        themeContext.Provider value = { mode === true ? theme.darkTheme : theme.colors } >
-        <
-        Navigation / >
-        <
-        /themeContext.Provider> <
-        /AuthProvider> <
-        /PerfilContext>
+            <AuthProvider >
+                <themeContext.Provider value = { mode === true ? theme.darkTheme : theme.colors } >
+                    <Navigation/>
+                </themeContext.Provider> 
+            </AuthProvider> 
+        </PerfilContext>
     );
 }
